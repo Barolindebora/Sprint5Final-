@@ -12,11 +12,20 @@ export function validarPais() {
           .notEmpty().withMessage('El nombre de la capital es obligatorio')
           .isLength({ min: 3, max: 90 }).withMessage('El nombre de la capital debe tener entre 3 y 90 caracteres'),
     
-        body('limitrofes')
-          .isArray({ min: 1, max: 3 }).withMessage('Debe haber entre 1 y 3 países limítrofes')
-          .custom(fronteras =>
-            Array.isArray(fronteras) && fronteras.every(f => typeof f === 'string' && /^[A-Z]{3}$/.test(f))
-          ).withMessage('Cada país limítrofe debe tener exactamente 3 letras mayúsculas'),
+          body('limitrofes')
+          .notEmpty().withMessage("Campo 'limitrofes' obligatorio.")
+          .custom(value => {
+            if (!value || typeof value !== 'string') throw new Error("Paises limitrofes inválidos.");
+            const limitrofesArray = value.split(',').map(p => p.trim());
+            if (limitrofesArray.length === 0) throw new Error("El campo limitrofes debe contener al menos un país válido (entre 3 y 60 caracteres).");
+            const limitrofeInvalido = limitrofesArray.find(p => !/^[A-Z]{3}$/.test(p))
+        if (limitrofeInvalido) {
+          throw new Error(`En los paises limítrofes "${limitrofeInvalido}" no cumple con la longitud requerida (exactamente 3 letras mayusculas).`);
+        }
+    
+            return true;
+          }),
+
     
         body('area')
           .optional()
@@ -30,11 +39,16 @@ export function validarPais() {
           .optional()
           .isNumeric().withMessage('El índice GINI debe ser un número'),
     
-        body('zonaHoraria')
+          body('zonaHoraria')
           .optional()
-          .isArray().withMessage('La zona horaria debe ser un array')
-          .custom(zonas => zonas.every(z => typeof z === 'string'))
-          .withMessage('Cada zona horaria debe ser una cadena de texto'),
+          .custom(value => {
+            if (typeof value !== 'string') return true;
+            const zonasHorarias = value.split(',').map(d => d.trim());
+            if (zonasHorarias.some(d => d.length < 1)) {
+              throw new Error("Cada zona horaria debe tener al menos 1 carácter.");
+            }
+            return true;
+          }),
     
         body('creador')
           .optional()

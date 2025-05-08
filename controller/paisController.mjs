@@ -105,6 +105,19 @@ export async function borrarPaisIdController(req, res) {
                 error: error.mensaje
             });
         }
-
+    }
+    export const mostrarIndexController = (req, res) => {
+        try {
+            res.render('index', { // Renderiza la vista index.ejs
+                
+                title: 'Página de Inicio',
+          
+            });
     
-}
+        } catch (error) {
+            res.status(500).send({
+                mensaje: 'Error al cargar la vista del índice',
+                error: error.message
+            });
+        }
+    };

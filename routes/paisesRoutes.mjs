@@ -9,11 +9,13 @@ router.get ('/paises', obtenerTodosLosPaisesController);
 router.get('/paises/obtenerCreadorDebora', obtenerTodosLosPaisesPorCreadorDeboraController)
 router.get('/paises/:id', obtenerPaisPorIdController);
 router.post('/paises/crear', validarPais(), manejarErroresDeValidacion, crearPaisController); 
-router.put ('/paises/actualizar/:id', actualizarPaisPorIdController); //arreglar las validaciones 
+router.put ('/paises/actualizar/:id', validarPais(), manejarErroresDeValidacion, actualizarPaisPorIdController); //arreglar las validaciones 
 router.delete('/paises/borrar/:id', borrarPaisIdController); 
 router.get('/dashboard',obtenerTodosLosPaisesPorCreadorDeboraController);
 router.get('/formulario/modificar-pais/:id',modificarPaisFormularioController)
-
+router.get('/formulario/crear-pais', (req, res) => {
+    res.render('agregarPais');
+});
 
 
  

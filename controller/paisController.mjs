@@ -88,7 +88,7 @@ export async function borrarPaisIdController(req, res) {
         }
 
         // Devolver el país borrado
-        res.status(200).json(paisBorrado);
+        res.redirect('/api/dashboard');
     } catch (error) {
         res.status(500).send({ mensaje: 'Error al borrar el país', error: error.message });
     }

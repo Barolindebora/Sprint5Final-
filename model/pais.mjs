@@ -2,8 +2,9 @@ import mongoose from 'mongoose';
 
 
 const paisSchema=new mongoose.Schema({
+    
     nombrePais: {type: String, required: true},
-    capital: {type: String, required: true},
+    capital: {type: [String]},
     limitrofes: [String],
     area: {type: Number},
     poblacion: {type: Number}, 

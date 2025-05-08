@@ -32,7 +32,7 @@
                     <% paises.forEach(pais => { %>
                         <tr class="dashboard-table-row">
                             <td class="dashboard-table-cell"><%= pais.nombrePais %></td>
-                            <td class="dashboard-table-cell"><%= pais.capital %></td>
+                            <td class="dashboard-table-cell"><%= pais.capital.join(', ') %></td>
                             <td class="dashboard-table-cell"><%= pais.limitrofes.join(', ') %></td>
                             <td class="dashboard-table-cell"><%= pais.area %></td>
                             <td class="dashboard-table-cell"><%= pais.poblacion %></td>

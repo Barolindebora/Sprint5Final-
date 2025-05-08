@@ -13,7 +13,7 @@
         <input type="text" name="nombrePais" required value="<%= paisAEditar.nombrePais %>">
     
         <label>Capital:</label>
-        <input type="text" name="capital" required value="<%= paisAEditar.capital %>">
+        <input type="text" name="capital" required value="<%= paisAEditar.capital.join(', ') %>">
     
         <label>Paises Limítrofes:</label>
         <input type="text" name="limitrofes" required value="<%= paisAEditar.limitrofes.join(', ') %>">

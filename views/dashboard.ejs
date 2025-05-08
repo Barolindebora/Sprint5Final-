@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Países</title>
+    <link rel="stylesheet" href="../estilosDashboard.css">
+</head>
+<body class="dashboard-body">
+
+    <header class="dashboard-header">
+        <h1 class="dashboard-title">Países</h1>
+    </header>
+
+    <main class="dashboard-main">
+        <section class="dashboard-table-container">
+            <table class="dashboard-table">
+                <thead class="dashboard-table-head">
+                    <tr class="dashboard-table-row header-row">
+                        <th class="dashboard-table-cell">Nombre</th>
+                        <th class="dashboard-table-cell">Capital</th>
+                        <th class="dashboard-table-cell">Países Limítrofes</th>
+                        <th class="dashboard-table-cell">Área</th>
+                        <th class="dashboard-table-cell">Población</th>
+                        <th class="dashboard-table-cell">Índice Gini</th>
+                        <th class="dashboard-table-cell">Zonas Horarias</th>
+                        <th class="dashboard-table-cell">Creador</th>
+                        <th class="dashboard-table-cell">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody class="dashboard-table-body">
+                    <% paises.forEach(pais => { %>
+                        <tr class="dashboard-table-row">
+                            <td class="dashboard-table-cell"><%= pais.nombrePais %></td>
+                            <td class="dashboard-table-cell"><%= pais.capital %></td>
+                            <td class="dashboard-table-cell"><%= pais.limitrofes.join(', ') %></td>
+                            <td class="dashboard-table-cell"><%= pais.area %></td>
+                            <td class="dashboard-table-cell"><%= pais.poblacion %></td>
+                            <td class="dashboard-table-cell"><%= pais.gini %></td>
+                            <td class="dashboard-table-cell"><%= (pais.zonaHoraria || []).join(', ') %></td>
+                            <td class="dashboard-table-cell"><%= pais.creador %></td>
+                            <td class="dashboard-table-cell">
+                                <a href="/api/formulario/modificar-pais/<%= pais._id %>" class="btn-editar">Editar</a>
+                                <form action="/paises/<%= pais._id %>?_method=DELETE" method="POST" style="display:inline;">
+                                    <button type="submit" class="btn-eliminar">Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+</body>/formulario/modificar-pais/
+</html>

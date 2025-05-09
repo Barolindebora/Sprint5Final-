@@ -83,8 +83,8 @@ footer {
     color: white;
     text-align: center;
     padding: 1rem;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+   /* border-top-left-radius: 10px;
+    border-top-right-radius: 10px;*/
     font-family: 'Segoe UI', sans-serif;
     font-size: 0.95rem;
     box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
@@ -96,7 +96,7 @@ footer {
     align-items: center;
     background-color: #f5f5f5;
     padding: 10px 20px;
-    border-bottom: 2px solid #ccc;
+    /*border-bottom: 2px solid #ccc;*/
     font-family: Arial sans-serif;
   }
   
@@ -223,3 +223,20 @@ footer {
    align-content: center;
    flex-direction: column;
   }
+  .inicio{
+  background-image: url('/images/mundoFondo.jpg'); /* Ruta relativa o absoluta */
+  background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que se repita */
+  height: 400px; /* Altura del contenedor */
+  width: 100%; /* Ancho completo */
+  color: white; /* Para que el texto se vea sobre la imagen */
+  text-shadow: 5px 5px 5px #152c1b;
+  text-align: center;
+  display: flex;
+  justify-content: center;  /* Centra horizontalmente */
+  align-items: center;      /* Centra verticalmente */
+  background-color: #f0f0f0; /* Opcional: color de fondo */
+  
+}
+

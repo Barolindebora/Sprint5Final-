@@ -36,15 +36,16 @@ export function validarPais() {
     
         body('area')
           .optional()
-          .isNumeric().withMessage('El área debe ser un número'),
+          .isFloat({min: 0}).withMessage('El área debe ser un número mayor a 0'),
     
-        body('poblacion')
+         body('poblacion')
           .optional()
-          .isNumeric().withMessage('La población debe ser un número'),
-    
+          .isInt({ min: 1 }).withMessage('La población debe ser un número entero positivo'),  
+
+
         body('gini')
-          .optional()
-          .isNumeric().withMessage('El índice GINI debe ser un número'),
+         .optional()
+         .isFloat({ min: 0, max: 100 }).withMessage('El índice GINI debe ser un número entre 0 y 100'),
     
           body('zonaHoraria')
           .optional()

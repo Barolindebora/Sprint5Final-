@@ -111,3 +111,32 @@ export async function borrarPaisIdController(req, res) {
             });
         }
     };
+
+    export async function obtenerTodosLosPaisesPorCreadorDeboraControllerConResumen(req, res) {
+  try {
+    const paises = await obtenerTodosLosPaisesPorCreadorDebora();
+
+    // Cálculo de totales
+    const totalPoblacion = paises.reduce((total, p) => total + (p.poblacion || 0), 0);
+    const totalArea = paises.reduce((total, p) => total + (p.area || 0), 0);
+
+    // Promedio Gini (solo si hay valores válidos)
+    const giniValores = paises.map(p => p.gini).filter(g => typeof g === 'number');
+    const promedioGini = giniValores.length > 0
+      ? (giniValores.reduce((a, b) => a + b, 0) / giniValores.length).toFixed(2)
+      : 'N/A';
+
+    // Render con variables adicionales
+    res.render('dashboard', {
+      paises,
+      totalPoblacion,
+      totalArea,
+      promedioGini
+    });
+  } catch (error) {
+    res.status(500).send({
+      mensaje: 'Error al obtener los paises',
+      error: error.message
+    });
+  }
+}

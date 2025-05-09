@@ -35,5 +35,6 @@ class PaisRepository extends IRepository{
            }
        
           
-        }
+  
+}
         export default new PaisRepository;

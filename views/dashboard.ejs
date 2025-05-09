@@ -34,6 +34,14 @@
                 </div>
             <% }) %>
         </section>
+        <section class="dashboard-resumen">
+  <div class="dashboard-card resumen">
+    <h2>Resumen</h2>
+    <p><strong>Total de Población:</strong> <%= totalPoblacion.toLocaleString() %></p>
+    <p><strong>Área Total:</strong> <%= totalArea.toLocaleString() %> km²</p>
+    <p><strong>Promedio Índice Gini:</strong> <%= promedioGini %></p>
+  </div>
+</section>
     </main>
 
 </body>

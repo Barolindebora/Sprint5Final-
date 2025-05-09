@@ -1,4 +1,4 @@
-import { connectDB } from './config/dbConfig.mjs';
+import { connectDB } from './config/dbconfig.mjs';
 import pais from './model/pais.mjs';
 const respuesta = await fetch('https://restcountries.com/v3.1/all');
 const paises = await respuesta.json();

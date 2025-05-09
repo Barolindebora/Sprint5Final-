@@ -4,37 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agregar Pais</title>
+    <link rel="stylesheet" href="/agregarForm.css">
 </head>
 <body>
-    <h1>Agregar Pais</h1>
-    <form action="/api/paises/crear" method="post">
-
-        <label for="nombrePais">Nombre del Pais:</label>
-        <input type="text" name="nombrePais" required minlength="3" maxlength="90">
-
-        <label for="capital">Capital:</label>
-        <input type="text" name="capital" required>
-
-        <label for="paisesLimitrofes">Paises Limítrofes:</label>
-        <input type="text" name="limitrofes" required>
-
-        <label for="area">Area:</label>
-        <input type="number" name="area" required>
-
-        <label for="poblacion">Poblacion:</label>
-        <input type="number" name="poblacion">
-
-        <label for="gini">Gini:</label>
-        <input type="number" name="gini" required>
-
-        <label for="zonaHoraria">Zonas Horarias:</label>
-        <input type="text" name="zonaHoraria">
-
-        <label for="creador">Creador:</label>
-        <input type="text" name="creador" value="Debora">
-
-        <button type="submit">Agregar</button>
-    </form>
+    <div class="formulario">
+        <h1>Agregar Pais</h1>
+        <form action="/api/paises/crear" method="post">
+            <label for="nombrePais">Nombre del Pais:</label>
+            <input type="text" name="nombrePais" required minlength="3" maxlength="90">
+            <label for="capital">Capital:</label>
+            <input type="text" name="capital" required>
+            <label for="paisesLimitrofes">Paises Limítrofes:</label>
+            <input type="text" name="limitrofes" required>
+            <label for="area">Area:</label>
+            <input type="number" name="area" required>
+            <label for="poblacion">Poblacion:</label>
+            <input type="number" name="poblacion">
+            <label for="gini">Gini:</label>
+            <input type="number" name="gini" required>
+            <label for="zonaHoraria">Zonas Horarias:</label>
+            <input type="text" name="zonaHoraria">
+            <label for="creador">Creador:</label>
+            <input type="text" name="creador" value="Debora">
+            <button type="submit">Agregar</button>
+        </form>
+    </div>
     <pre>
 
 

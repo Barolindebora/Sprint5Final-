@@ -6,34 +6,36 @@
     <title>Editar País <%= paisAEditar.nombrePais %></title>
 </head>
 <body>
-    <h1>Editar <%= paisAEditar.nombrePais %> </h1>
-    <form action="/api/paises/actualizar/<%= paisAEditar._id %>?_method=PUT" method="post">
-    
-        <label>Nombre del pais:</label>
-        <input type="text" name="nombrePais" required value="<%= paisAEditar.nombrePais %>">
-    
-        <label>Capital:</label>
-        <input type="text" name="capital" required value="<%= paisAEditar.capital.join(', ') %>">
-    
-        <label>Paises Limítrofes:</label>
-        <input type="text" name="limitrofes" required value="<%= paisAEditar.limitrofes.join(', ') %>">
-    
-        <label>Area:</label>
-        <input type="number" name="area" required value="<%= paisAEditar.area %>">
-    
-        <label>Población:</label>
-        <input type="number" name="poblacion" value="<%= paisAEditar.poblacion %>">
-    
-        <label>gini :</label>
-        <input type="number" name="gini" value="<%= paisAEditar.gini %>">
-    
-        <label>Zonas Horarias (separadas por coma):</label>
-        <input type="text" name="zonaHoraria" value="<%= paisAEditar.zonaHoraria.join(', ') %>">
-    
-        <label>CREADOR:</label>
-        <input type="text" name="creador" value="<%= paisAEditar.creador %>">
-    
-        <button type="submit">Guardar Cambios</button>
-    </form>
+    <div class="formulario">
+        <h1>Editar <%= paisAEditar.nombrePais %> </h1>
+        <form action="/api/paises/actualizar/<%= paisAEditar._id %>?_method=PUT" method="post">
+        
+            <label>Nombre del pais:</label>
+            <input type="text" name="nombrePais" required value="<%= paisAEditar.nombrePais %>">
+        
+            <label>Capital:</label>
+            <input type="text" name="capital" required value="<%= paisAEditar.capital.join(', ') %>">
+        
+            <label>Paises Limítrofes:</label>
+            <input type="text" name="limitrofes" required value="<%= paisAEditar.limitrofes.join(', ') %>">
+        
+            <label>Area:</label>
+            <input type="number" name="area" required value="<%= paisAEditar.area %>">
+        
+            <label>Población:</label>
+            <input type="number" name="poblacion" value="<%= paisAEditar.poblacion %>">
+        
+            <label>gini :</label>
+            <input type="number" name="gini" value="<%= paisAEditar.gini %>">
+        
+            <label>Zonas Horarias (separadas por coma):</label>
+            <input type="text" name="zonaHoraria" value="<%= paisAEditar.zonaHoraria.join(', ') %>">
+        
+            <label>CREADOR:</label>
+            <input type="text" name="creador" value="<%= paisAEditar.creador %>">
+        
+            <button type="submit">Guardar Cambios</button>
+        </form>
+    </div>
 </body>
 </html>

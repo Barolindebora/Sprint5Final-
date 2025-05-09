@@ -35,7 +35,7 @@ export async function crearPaisController(req, res) {
     try {
         const datosPais = req.body;
         const nuevoPais = await crearPais(datosPais);
-        res.status(201).json(renderizarPaises(nuevoPais));
+        res.redirect('/api/dashboard'); // Redirigir a la página de dashboard después de crear el país
 
     } catch (error) {
         res.status(500).send({ mensaje: "Error al crear el pais", error: error.message });
@@ -55,17 +55,7 @@ export async function actualizarPaisPorIdController(req, res) {
 }
 
 
-export async function actualizarSuperheroeController(req, res) {
-    try {
-    const {id}= req.params;
-    const nuevosDatos= req.body;
-    const superheroeActualizado = await actualizarSuperheroe(id,nuevosDatos);
-   res.redirect('/api/dashboard');
- 
-    } catch (error) {
-        res.status(500).send({mensaje:'Superheroe con ID incorrecto o inexistente'}); 
-    }
-}
+
 
 
 export async function obtenerTodosLosPaisesPorCreadorDeboraController(req, res) {

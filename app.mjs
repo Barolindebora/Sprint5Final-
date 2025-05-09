@@ -17,7 +17,7 @@ app.use((req, res, next) => {
     res.locals.title = 'App de paises'; // título por defecto
     next();
   });
-
+app.use(express.static('public'));
 app.set ('view engine', 'ejs');
 app.set('views', path.resolve('./views'));
 

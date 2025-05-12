@@ -9,10 +9,15 @@
 Para el desarrollo del proyecto se utilizaron distintas dependencias y herramientas de desarrollo que incluyen un framework web (Express), una biblioteca de modelado de datos para MongoDB (Mongoose), un motor de plantillas (EJS) y diversos middlewares como method-override, express-validator y ejs-layouts.
 
 Express	            ✔️ Framework web minimalista para Node.js
+
 Mongoose	        ✔️ ODM (Object Data Modeling) – biblioteca para MongoDB
+
 EJS	                ✔️ Motor de plantillas (Template Engine)
+
 ejs-layouts	        ✔️ Middleware o helper para manejar layouts con EJS
+
 method-override	    ✔️ Middleware de Express para soportar PUT/DELETE en formularios HTML
+
 express-validator	✔️ Middleware de validación (validación y sanitización de datos)
 
 
@@ -21,19 +26,14 @@ Este archivo tiene como propósito establecer la conexión entre la aplicación 
 
 📌 Descripción del contenido
 Importación de Mongoose
-
-js
-Copiar
-Editar
 import mongoose from 'mongoose';
 Se importa el módulo mongoose, que funciona como un Object Data Modeling (ODM), facilitando el manejo de datos en MongoDB mediante modelos y esquemas.
 
 Definición de la función connectDB()
-
 export async function connectDB() { ... }
 Se declara una función asincrónica que se encarga de conectar la aplicación con la base de datos.
-Conexión con la base de datos
 
+Conexión con la base de datos
 await mongoose.connect('mongodb+srv://...');
 Se utiliza mongoose.connect() para establecer la conexión con una base de datos remota en MongoDB Atlas. La cadena de conexión incluye el nombre de usuario, la contraseña y el nombre de la base de datos.
 

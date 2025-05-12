@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'; 
+import mongoose from 'mongoose'; //definición del modelo con el que se va a trabajar en el proyecto, modelo que se guarda en la base de datos 
 
 
 const paisSchema=new mongoose.Schema({

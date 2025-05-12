@@ -18,3 +18,4 @@ class IRepository{
 }
 
 export default IRepository;
+//este archivo establece los metodos que deben implementar los modelos que se definen

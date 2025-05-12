@@ -10,7 +10,7 @@ export async function  obtenerPaisPorIdController(req, res) {
         if (!pais)
             return res.status(404).send ({mensaje:'Pais no encontrado'});
         const paisFormateado=renderizarListaPaises(pais)
-        res.status(200).json(paisFormateado);
+        res.status(200).json(paisFormateado); //renderiza en formato json
 
     } catch (error){
         res.status(500).send ({mensaje: 'Error al obtener el pais', error:error.mensaje})
@@ -117,12 +117,12 @@ export async function borrarPaisIdController(req, res) {
     const paises = await obtenerTodosLosPaisesPorCreadorDebora();
 
     // Cálculo de totales
-    const totalPoblacion = paises.reduce((total, p) => total + (p.poblacion || 0), 0);
-    const totalArea = paises.reduce((total, p) => total + (p.area || 0), 0);
+    const totalPoblacion = paises.reduce((total, p) => total + (p.poblacion || 0), 0);//definir
+    const totalArea = paises.reduce((total, p) => total + (p.area || 0), 0);//definir 
 
-    // Promedio Gini (solo si hay valores válidos)
-    const giniValores = paises.map(p => p.gini).filter(g => typeof g === 'number');
-    const promedioGini = giniValores.length > 0
+    // Promedio Gini (solo si hay valores válidos) tengo que definir estos metodos en la capa de repositorio para que recorra el proyecto de manera correspondiente 
+    const giniValores = paises.map(p => p.gini).filter(g => typeof g === 'number');//definir metodo 
+    const promedioGini = giniValores.length > 0//definir
       ? (giniValores.reduce((a, b) => a + b, 0) / giniValores.length).toFixed(2)
       : 'N/A';
 
